@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
+  - "$HOME/.npm"
+  - "$HOME/.cache"
 before_install:
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower phantomjs-prebuilt
+- bower --version
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: nk2gdpM+rwjCRFQn8Wnv1vWBRnRZxcWiNq3sAGKljFZN34RKphbx62SNOC05G5UgWFpwZQ9I8SWWMK3uqaAb410LP22LG5bSjaji/n1X7Qly8NFtI16f/x8fjirTSb4HvjVvypkIS5bfV3wK4fsBu9t0GsSHCNjTF8DWyLGXTy1KzTo9TNdqiKLkIhmEFR2wTpHbXlVudjsxC++DBlxQjbC/5lFuC42OZkA1kYPSgai2OsRVSNYVylnTOrCwjxoWgDM++HKThHvPYHbrp9XLYMsgeUn3XTv/iaTFKZb3DiAMH8N71gB4kC8s4Wlb8WJwH1+nXN+RzgEuc8U6+grCRMd3j1jBeo6qCKZDr2PU/d+z02v8KfYSqYYE43VgBDvkOB+oOQ5hyQgdEhiXXr5JWuNxkbacAC1t8EYsFZDh9TeJroVi3vU/7/WN26fX9I/Pep2tcdL7+PHXFlR2z6ChhPYBsak+Tgce5LaZrmX6UlOqTtqkJoXiBRYWTfuSGqDKavYtlyTHWQ8qIXJ5qKGoXsewuoMmvJCGbPajmJGRNrAtAOeQ8ImEDO/SSdiix29S0RrwqgiiIYOXE16d84Q8Cy+2FWKN4PHaozx1hUDSsEgE4eW0DjQXZpoqdhvjgogM7JndqA6qqDzCLY3vyBwBTrrUdAZ7rUGU2fj9Xh1mcRU=
+  app: glacial-plains-23076
+  on:
+    repo: mswanson/peepchat-ui
